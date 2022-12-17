@@ -2,7 +2,9 @@ package com.example.crash_do_not_keep_activities.fragment
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.crash_do_not_keep_activities.activity.PostSelectCategoryActivity
 import com.example.crash_do_not_keep_activities.viewmodel.PostViewModel
@@ -23,10 +25,20 @@ abstract class PostFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.onLoad()
+    }
+
+    override fun onDestroy() {
+        Log.d("Tatsuya", "PostFragment onDestroy: ")
+        super.onDestroy()
+    }
+
     open fun observeLiveData() {
         viewModel.selectedCategory.observe(viewLifecycleOwner) {
             Log.d("Tatsuya", "PostFragment selectedCategory: $it")
-            val intent = PostSelectCategoryActivity.createIntent(requireContext())
+            val intent = PostSelectCategoryActivity.createIntent(requireActivity())
             startActivityForResult(intent, REQUEST_CODE_FOR_CATEGORY)
         }
 

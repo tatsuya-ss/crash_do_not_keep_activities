@@ -35,6 +35,8 @@ android {
 }
 
 dependencies {
+    // hilt
+    implementation "com.google.dagger:hilt-android:2.44"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"

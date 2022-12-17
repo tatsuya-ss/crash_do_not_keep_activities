@@ -4,6 +4,7 @@
     package="com.example.crash_do_not_keep_activities">
 
     <application
+        android:name=".ExampleApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
