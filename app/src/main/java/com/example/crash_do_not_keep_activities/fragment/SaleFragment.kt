@@ -31,9 +31,14 @@ class SaleFragment : PostFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
-            val intent = PostSelectCategoryActivity.createIntent(requireContext())
-            startActivityForResult(intent, REQUEST_CODE_FOR_CATEGORY)
+            viewModel.onSelectCategory()
         }
+
+        observeLiveData()
+    }
+
+    override fun observeLiveData() {
+        super.observeLiveData()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
