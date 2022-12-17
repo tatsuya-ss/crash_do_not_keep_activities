@@ -28,6 +28,9 @@ class PostActivity : AppCompatActivity(), PostFragment.Listener {
 
         currentFragment = SaleFragment.newInstance()
 
+        // viewModel経由に変更したらクラッシュが再現できた。
+        // 経由していないときは破棄されたPostFragmentのonActivityResultは呼ばれていなかったが、経由するようにすると呼ばれてクラッシュ
+
         viewModel.createStart.observe(this) {
             Log.d("Tatsuya exception", "PostActiavity createStart: $it")
             supportFragmentManager.beginTransaction()
@@ -35,6 +38,7 @@ class PostActivity : AppCompatActivity(), PostFragment.Listener {
         }
 
         viewModel.onLoad()
+        Log.d("Tatsuya exception", "PostActiavity onCreate:")
     }
 
     override fun onDestroy() {
