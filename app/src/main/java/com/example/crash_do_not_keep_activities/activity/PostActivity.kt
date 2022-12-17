@@ -29,7 +29,7 @@ class PostActivity : AppCompatActivity(), PostFragment.Listener {
         currentFragment = SaleFragment.newInstance()
 
         viewModel.createStart.observe(this) {
-            Log.d("Tatsuya", "PostActiavity createStart: $it")
+            Log.d("Tatsuya exception", "PostActiavity createStart: $it")
             supportFragmentManager.beginTransaction()
                 .replace(binding.fragmentContainerView.id, currentFragment!!).commit()
         }
@@ -38,7 +38,7 @@ class PostActivity : AppCompatActivity(), PostFragment.Listener {
     }
 
     override fun onDestroy() {
-        Log.d("Tatsuya", "PostActivity onDestroy: ")
+        Log.d("Tatsuya exception", "PostActivity onDestroy: ")
         super.onDestroy()
     }
 

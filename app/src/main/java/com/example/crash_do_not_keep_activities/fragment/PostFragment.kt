@@ -31,19 +31,19 @@ abstract class PostFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        Log.d("Tatsuya", "PostFragment onDestroy: ")
+        Log.d("Tatsuya exception", "PostFragment onDestroy: ")
         super.onDestroy()
     }
 
     open fun observeLiveData() {
         viewModel.selectedCategory.observe(viewLifecycleOwner) {
-            Log.d("Tatsuya", "PostFragment selectedCategory: $it")
+            Log.d("Tatsuya exception", "PostFragment selectedCategory: $it")
             val intent = PostSelectCategoryActivity.createIntent(requireActivity())
             startActivityForResult(intent, REQUEST_CODE_FOR_CATEGORY)
         }
 
         viewModel.updateCategory.observe(viewLifecycleOwner) {
-            Log.d("Tatsuya", "PostFragment updateCategory: $it")
+            Log.d("Tatsuya exception", "PostFragment updateCategory: $it")
         }
     }
 
@@ -51,7 +51,7 @@ abstract class PostFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             REQUEST_CODE_FOR_CATEGORY -> {
-                Log.d("Tatsuya", "onActivityResult: REQUEST_CODE_FOR_CATEGORY")
+                Log.d("Tatsuya exception", "onActivityResult: REQUEST_CODE_FOR_CATEGORY")
                 listener?.onSelectedCategory()
             }
         }

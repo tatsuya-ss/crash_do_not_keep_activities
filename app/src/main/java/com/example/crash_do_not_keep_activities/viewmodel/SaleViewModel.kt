@@ -12,6 +12,6 @@ class SaleViewModel @Inject constructor(
 
     override fun onLoad() {
         super.onLoad()
-        Log.d("Tatsuya", "SaleViewModel onLoad: ")
+        Log.d("Tatsuya exception", "SaleViewModel onLoad: ")
     }
 }

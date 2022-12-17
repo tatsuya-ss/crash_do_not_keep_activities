@@ -15,7 +15,7 @@ abstract class PostViewModel internal constructor(
     val updateCategory = _updateCategory
 
     open fun onLoad() {
-        Log.d("Tatsuya", "PostViewModel onLoad: ")
+        Log.d("Tatsuya exception", "PostViewModel onLoad: ")
     }
 
     fun onSelectCategory() {

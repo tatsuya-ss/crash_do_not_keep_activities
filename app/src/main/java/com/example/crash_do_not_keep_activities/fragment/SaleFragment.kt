@@ -43,14 +43,14 @@ class SaleFragment : PostFragment() {
     }
 
     override fun onDestroy() {
-        Log.d("Tatsuya", "SaleFragment onDestroy: ")
+        Log.d("Tatsuya exception", "SaleFragment onDestroy: ")
         super.onDestroy()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        Log.d("Tatsuya", "SaleFragment onActivityResult: $resultCode")
+        Log.d("Tatsuya exception", "SaleFragment onActivityResult: $resultCode")
     }
 
     override fun observeLiveData() {
