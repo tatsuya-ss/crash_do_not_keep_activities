@@ -32,6 +32,7 @@ class SaleFragment : PostFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("Tatsuya exception", "SaleFragment onViewCreated: ")
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
