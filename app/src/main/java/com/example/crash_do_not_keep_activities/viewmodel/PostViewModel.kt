@@ -7,7 +7,14 @@ abstract class PostViewModel : ViewModel() {
     private val _selectedCategory: MutableLiveData<String> = MutableLiveData()
     val selectedCategory = _selectedCategory
 
+    private val _updateCategory: MutableLiveData<String> = MutableLiveData()
+    val updateCategory = _updateCategory
+
     fun onSelectCategory() {
         _selectedCategory.value = "更新された"
+    }
+
+    fun onUpdateCategory() {
+        _updateCategory.value = "売買"
     }
 }

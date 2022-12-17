@@ -41,18 +41,7 @@ class SaleFragment : PostFragment() {
         super.observeLiveData()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode) {
-            REQUEST_CODE_FOR_CATEGORY -> {
-                Log.d("Tatsuya", "onActivityResult: REQUEST_CODE_FOR_CATEGORY")
-            }
-        }
-    }
-
     companion object {
-        private const val REQUEST_CODE_FOR_CATEGORY = 1
-
         fun newInstance(): SaleFragment {
             return SaleFragment()
         }
