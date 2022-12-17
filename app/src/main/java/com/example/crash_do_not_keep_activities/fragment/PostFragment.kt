@@ -15,6 +15,8 @@ abstract class PostFragment : Fragment() {
 
     protected var listener: Listener? = null
 
+    private var isSavedInstanceState: Boolean = false
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -27,6 +29,8 @@ abstract class PostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        isSavedInstanceState = (savedInstanceState != null)
+        Log.d("Tatsuya exception", "PostFragment onViewCreated: ")
         viewModel.onLoad()
     }
 
@@ -49,6 +53,7 @@ abstract class PostFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (isSavedInstanceState) return
         when (requestCode) {
             REQUEST_CODE_FOR_CATEGORY -> {
                 Log.d("Tatsuya exception", "onActivityResult: REQUEST_CODE_FOR_CATEGORY")
